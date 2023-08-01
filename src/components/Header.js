@@ -7,7 +7,7 @@ export default function Header(props) {
   return (
     // <header className={className}>
     //    { children }  </header>
-    <header {...extra}>{children}</header>
+    <div {...extra}>{children}</div>
   );
 }
 // }

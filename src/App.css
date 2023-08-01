@@ -1,4 +1,81 @@
-.App {
+body {
+  margin: 10px;
+  min-width: 250px;
+}
+.footer {
+  clear: both;
+  text-align: center;
+}
+/* Include the padding and border in an element's total width and height */
+* {
+  box-sizing: border-box;
+}
+
+.todolist {
+  margin: 20px;
+  padding: 20px;
+}
+/* Remove margins and padding from the list */
+ul {
+  text-align: center;
+  margin: 0;
+  padding: 10px;
+}
+ul li {
+  font-size: larger;
+  list-style: none;
+  margin-block: 10px 20px;
+  writing-mode: horizontal-tb;
+  display: list-item;
+}
+
+/* Style the header */
+.top-header {
+  background-color: #f44336;
+  padding: 30px 40px;
+  color: white;
+  text-align: center;
+}
+
+/* Clear floats after the top-header */
+/* .top-header:after {
+  content: "";
+  display: table;
+  clear: both;
+} */
+
+/* Style the input */
+input {
+  margin: 0;
+  border: 1 px solid black;
+  border-radius: 0;
+  width: 75%;
+  padding: 10px;
+  float: left;
+  font-size: 16px;
+}
+
+/* Style the "Add" button */
+.addBtn {
+  padding: 10px;
+  width: 25%;
+  background: #d9d9d9;
+  color: #555;
+  float: left;
+  text-align: center;
+  font-size: 16px;
+  cursor: pointer;
+  transition: 0.3s;
+  border-radius: 0;
+}
+
+.addBtn:hover {
+  background-color: #bbb;
+}
+input[type="checkbox"] {
+}
+
+/* .App {
   text-align: center;
 }
 .App-logo {
@@ -34,4 +111,4 @@
   to {
     transform: rotate(360deg);
   }
-}
+} */

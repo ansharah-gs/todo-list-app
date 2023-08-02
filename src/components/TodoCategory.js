@@ -8,8 +8,9 @@ const TodoCategory = (props) => {
   //  take the task thats added, AND ADD IT TO THE ARRAY OF TASKS(sending it to the children)
   const onTaskAddedCallback = (task) => {
     setTasks([...tasks, task]);
+    //spread out the previous task first so that it doesn't get overrides
     // update tasks array from user input to tasks array and re-renders
-  };
+  }
 
   // debugger;
   //outside of function so it renders and than displays the tasks array

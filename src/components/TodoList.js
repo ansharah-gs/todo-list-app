@@ -2,11 +2,12 @@ import React from "react";
 
 const TodoList = ({ tasksArray }) => {
   console.log(tasksArray);
-  //debugger;
+  debugger;
   return (
     <div className="todolist">
       <ul>
-        {tasksArray.map((task, index) => (
+        {tasksArray.map((task,index) => (
+      
           // key is unique identifier for each task in the array
           <>
             <input type="checkbox" />

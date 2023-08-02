@@ -3,6 +3,7 @@ import React from "react";
 // on task added State lifting; sending data from child to parent,
 const Todoform = ({ onTaskAdded }) => {
   //setting up errors array to be used to display errors in the form
+  console.log(onTaskAdded);
   const [errors, setErrors] = React.useState([]);
   //on submit function
 
@@ -13,7 +14,7 @@ const Todoform = ({ onTaskAdded }) => {
     const value = event.target.task.value;
 
     const newErrors = [];
-    //testing logiv
+    //testing logic
     if (value === "") {
       //==== means value isn't  empty and type should be same
       newErrors.push("Please enter a task");
@@ -21,7 +22,7 @@ const Todoform = ({ onTaskAdded }) => {
       // trim remove white space from the string
       newErrors.push("task can't be spaces");
     }
-    
+
     setErrors(newErrors);
     //if the errors array is empty, then add the value(tasks) to the errors array
     if (newErrors.length == 0) {

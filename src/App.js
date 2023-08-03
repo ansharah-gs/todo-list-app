@@ -1,21 +1,24 @@
-import React, { useState } from "react";
-import Header from "./components/Header";
-import TodoCategory from "./components/TodoCategory";
-import Footer from "./components/Footer";
-import "./App.css";
-import TodoformClass from "./components/TodoFormClass";
-import Funfact from "./components/Funfact";
+import React from "react";
+import "./assets/App.css";
+import { BrowserRouter , Route, Routes, Navigate } from "react-router-dom";
+import FunFact from "./pages/Funfact";
+import Tasks from "./pages/Tasks";
+import NotFound from "./pages/Notfound";
+
+
 
 export default function App() {
   return (
     <>
-      <Header className="top-header">
-        <h1>Todo List ✔</h1>
-      </Header>
-      <Funfact />
-      <TodoCategory />
-      
-      <Footer />
+    <BrowserRouter>
+      <Routes>
+      <Route path="/fun-fact" element={<FunFact />} />
+      <Route path="/to-do-list" element={<Tasks />} />
+      <Route path="/" element={<Navigate to="/fun-fact"/>} />
+
+      <Route path="*" element={<NotFound />} />
+      </Routes>
+    </BrowserRouter>
     </>
   );
 }

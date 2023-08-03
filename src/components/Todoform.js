@@ -1,9 +1,14 @@
-import React from "react";
+import React, { useEffect } from "react";
+import taskData from "../data/tasks.json";
 //functions to get props
 // on task added State lifting; sending data from child to parent,
 const Todoform = ({ onTaskAdded }) => {
+  // useEffect(() => {
+  //   console.log("use effect called");
+  // },[onTaskAdded]);
+
   //setting up errors array to be used to display errors in the form
-  console.log(onTaskAdded);
+  console.log(taskData.tasks[1]);  
   const [errors, setErrors] = React.useState([]);
   //on submit function
 
@@ -46,14 +51,22 @@ const Todoform = ({ onTaskAdded }) => {
     setErrors([]);
     // onTaskAdded(value);
   };
+  const generateRandomTask =()=>{
+  const taskArray= taskData.tasks;
+  const randomNumber= (Math.random() * taskData.tasks.length-1).toFixed(0);
+  const randomTask=taskArray[randomNumber];
+  inputRef.current.value=randomTask;
+}
+const inputRef = React.createRef();
   return (
     <>
       <form onSubmit={onSubmit}>
-        <input type="text" name="task" onChange={onTaskChanged} />
+        <input type="text" name="task" ref={inputRef} onChange={onTaskChanged} />
         {/* always use button tag for buttons */}
         <button type="submit" className="addBtn" disabled={hasErrors}>
           <strong>Add Task</strong>
         </button>
+        <button type="button" onClick={generateRandomTask}> Random Task </button>
         <ul style={{ ulStyles }}>{errorELements}</ul>
       </form>
     </>

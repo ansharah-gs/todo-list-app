@@ -3,7 +3,6 @@ body {
   min-width: 250px;
 }
 .footer {
-  clear: both;
   text-align: center;
 }
 /* Include the padding and border in an element's total width and height */
@@ -31,9 +30,7 @@ ul li {
 
 /* Style the header */
 .top-header {
-  background-color: #f44336;
   padding: 30px 40px;
-  color: white;
   text-align: center;
 }
 

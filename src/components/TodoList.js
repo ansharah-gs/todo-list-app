@@ -1,5 +1,7 @@
 import React, { useEffect } from "react";
 import Tasks from "./Task";
+import { Container, Row, Col,List } from "reactstrap";
+
 
 const TodoList = ({ tasksArray }) => {
   useEffect(() => {
@@ -22,16 +24,23 @@ const TodoList = ({ tasksArray }) => {
   //console.log(tasksArray);
   //`debugger;
   return (
-    <div className="todolist">
-      <ul>
-        {tasksArray.map((task, index) => (
-          // key is unique identifier for each task in the array
-          <>
-            <Tasks>{task}</Tasks>
-          </>
-        ))}
-      </ul>
-    </div>
+    <Container>
+      <Row>
+        <Col className="bg-light" md='12'>
+        <div className="d-flex align-items-center">
+          <List>
+            
+            {tasksArray.map((task, index) => (
+                        // key is unique identifier for each task in the array
+                        <>
+                          <Tasks>{task}</Tasks>
+                        </>
+                      ))}
+            </List>         
+        </div>
+        </Col>
+        </Row>
+      </Container>
   );
 };
 export default TodoList;

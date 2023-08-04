@@ -1,5 +1,16 @@
 import React, { useEffect } from "react";
 import taskData from "../data/tasks.json";
+import {
+  Form,
+  Label,
+  Input,
+  Alert,
+  Row,
+  Col,
+  Button,
+  List
+} from "reactstrap";
+
 //functions to get props
 // on task added State lifting; sending data from child to parent,
 const Todoform = ({ onTaskAdded }) => {
@@ -8,13 +19,14 @@ const Todoform = ({ onTaskAdded }) => {
   // },[onTaskAdded]);
 
   //setting up errors array to be used to display errors in the form
-  console.log(taskData.tasks[1]);  
+  console.log(taskData.tasks[1]);
   const [errors, setErrors] = React.useState([]);
   //on submit function
 
   const onSubmit = (event) => {
     event.preventDefault(); //prevents page from refreshing
-    //console.log(event.target.task.value);
+    console.log(event.target.task);
+    console.log(event.target.task.value);
     //create a new task and add it to the list of task
     const value = event.target.task.value;
 
@@ -36,13 +48,14 @@ const Todoform = ({ onTaskAdded }) => {
 
     // debugger;
   };
-  const ulStyles = {
-    color: "red",
-  };
+  // const ulStyles = {
+  //   color: "red",
+  // };
   const hasErrors = errors.length > 0 ? true : false;
 
   const errorELements = errors.map((error, index) => {
-    return <li key={index}>{error}</li>;
+    return <Alert color="danger"key={index}>{error}</Alert>;
+    // return <li key={index}>{error}</li>;
   });
 
   const onTaskChanged = (event) => {
@@ -51,24 +64,43 @@ const Todoform = ({ onTaskAdded }) => {
     setErrors([]);
     // onTaskAdded(value);
   };
-  const generateRandomTask =()=>{
-  const taskArray= taskData.tasks;
-  const randomNumber= (Math.random() * taskData.tasks.length-1).toFixed(0);
-  const randomTask=taskArray[randomNumber];
-  inputRef.current.value=randomTask;
-}
-const inputRef = React.createRef();
+  const generateRandomTask = () => {
+    const taskArray = taskData.tasks;
+    const randomNumber = (Math.random() * taskData.tasks.length - 1).toFixed(0);
+    const randomTask = taskArray[randomNumber];
+    inputRef.current.value = randomTask;
+    debugger;
+
+  };
+  const inputRef = React.createRef();
   return (
     <>
-      <form onSubmit={onSubmit}>
-        <input type="text" name="task" ref={inputRef} onChange={onTaskChanged} />
-        {/* always use button tag for buttons */}
-        <button type="submit" className="addBtn" disabled={hasErrors}>
-          <strong>Add Task</strong>
-        </button>
-        <button type="button" onClick={generateRandomTask}> Random Task </button>
-        <ul style={{ ulStyles }}>{errorELements}</ul>
-      </form>
+      <Form onSubmit={onSubmit}>
+        <Row className="row-cols-lg-auto g-3 justify-content-center">
+          <Col>
+           
+              <Input
+                id="exampleText"
+                name="task"
+                type="text"
+                placeholder="Add a task"
+                innerRef={inputRef}
+                onChange={onTaskChanged}
+              />
+          </Col>
+          <Col>
+            <Button type="submit" disabled={hasErrors}>
+              Add Task
+            </Button>
+          </Col>
+          <Col>
+            <Button type="button" onClick={generateRandomTask}>
+              Random Task
+            </Button>
+          </Col>
+        </Row>
+      </Form>
+      <List>{errorELements}</List>
     </>
   );
 };

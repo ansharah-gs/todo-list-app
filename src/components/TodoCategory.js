@@ -10,11 +10,11 @@ const TodoCategory = (props) => {
     setTasks([...tasks, task]);
     //spread out the previous task first so that it doesn't get overrides
     // update tasks array from user input to tasks array and re-renders
-  }
+  };
 
   // debugger;
   //outside of function so it renders and than displays the tasks array
-  // console.log(" task:",tasks);
+  // console.log(" task:", tasks);
   //destructure the props; extra is just anything other than children, children is whats inside header tag
   return (
     <>

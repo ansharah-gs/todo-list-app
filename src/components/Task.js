@@ -1,27 +1,24 @@
-import React, { useState } from "react";
+import React from "react";
 import { FormGroup, Label, Input } from "reactstrap";
-const Tasks = (props) => {
-  const { children } = props;
-  const [completed, setCompleted] = useState(false);
+import { useDispatch } from "react-redux";
+import { toggleTodos } from "./TodoSlice";
 
-  const onCompletedChange = (e) => {
-    //console.log(e.target.checked);
-    const isChecked = e.target.checked;
-    setCompleted(isChecked);
-  };
+const Tasks = ({ children }) => {
+  const dispatch = useDispatch();
+
   const taskStyle = {
-    textDecoration: completed ? "line-through" : "none",
+    textDecoration: children.completed ? "line-through gray 15%" : "none",
   };
   return (
-    <FormGroup check className="d-flex justify-content-start">
+    <FormGroup check className="d-flex justify-content-start align-items-start">
       <Input
-        id="checkbox2"
-        name="completed"
+        name={children.completed}
         type="checkbox"
-        onChange={onCompletedChange}
+        onChange={() => dispatch(toggleTodos(children.id))}
       />
-      <Label check style={taskStyle} tag="p">
-        {children}
+
+      <Label className="mx-2" check style={taskStyle} tag="p">
+        {children?.text}
       </Label>
     </FormGroup>
   );

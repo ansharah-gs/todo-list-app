@@ -24,9 +24,9 @@ const Funfact = () => {
   //get response as state variable
   return (
     <div className="container">
-      <div class="row justify-content-start">
-        <div class="col-1">Fun fact : </div>
-        <div class="col-11">{facts}</div>
+      <div className="row d-flex justify-content-center p-5">
+        <div className="col-auto fw-bold fs-4">Fun Fact:</div>
+        <div className="col-9 fw-lighter fs-4">{facts}</div>
       </div>
     </div>
   );

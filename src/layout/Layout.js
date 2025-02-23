@@ -9,17 +9,12 @@ export default function Layout({ children }) {
     <>
       <Header className="top-header">
         <h1>Ansharah's Website </h1>
-        <div>
-          <Button color="info" outline>
-            Click Me
-          </Button>
-        </div>
-        <Link to="/fun-fact" className="btn btn-outline-secondary">
-          Goto FunFacts
+        <Link to="/fun-fact" className="btn btn-outline-info">
+          FunFacts
         </Link>
-        <span> | </span>
-        <Link to="/to-do-list" className="btn btn-outline-secondary">
-          Goto Todo List
+        <span> </span>
+        <Link to="/to-do-list" className="btn btn-outline-primary">
+          Todo List
         </Link>
       </Header>
       {children}

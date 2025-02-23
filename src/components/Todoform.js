@@ -80,12 +80,12 @@ const Todoform = ({ onTaskAdded, randomTask }) => {
                 placeholder="Add a task"
               />
             </Col>
-            <Col className="p-2 col-auto offset-sm-5">
+            <Col className="p-2 col-auto ms-auto">
               <Button type="submit" color="success" disabled={hasErrors}>
                 Add Task
               </Button>
             </Col>
-            <Col className="p-2 col-auto ">
+            <Col className="p-2 col-auto">
               <Button type="button" color="info" onClick={generateRandomTask}>
                 Random Task
               </Button>

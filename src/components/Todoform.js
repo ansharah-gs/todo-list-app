@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from "react";
+import React, { useState, useMemo, useEffect } from "react";
 import taskData from "../data/tasks.json";
 import {
   Form,
@@ -9,9 +9,13 @@ import {
   Button,
   List,
   Container,
+  Card,
+  CardTitle,
+  CardBody,
 } from "reactstrap";
 import { useDispatch } from "react-redux";
 import { addTodos } from "./TodoSlice";
+import moment from "moment";
 
 const Todoform = ({ onTaskAdded, randomTask }) => {
   const [input, setInput] = useState("");
@@ -61,16 +65,45 @@ const Todoform = ({ onTaskAdded, randomTask }) => {
     const randomNumber = Math.floor(Math.random() * taskData.tasks.length);
     const randomTask = taskArray[randomNumber];
     setInput(randomTask);
-    dispatch(addTodos(randomTask)); // Add the random task directly
+    // dispatch(addTodos(randomTask)); // Add the random task directly
     setErrors([]); // Clear errors when a random task is added
   };
+  const currentDate = useMemo(() => {
+    console.log("🧠 useMemo: Calculating current date");
+
+    return {
+      day: moment().format("ddd"),
+      date: moment().format("DD"),
+      month: moment().format("MMM"),
+    };
+  }, []);
+  const { day, date, month } = currentDate;
 
   return (
     <>
       <Form onSubmit={handleSubmit}>
         <Container className="align-middle">
           <Row className="d-flex row cols align-items-center">
-            <Col className="p-2 col-12">
+            <Col className="p-2 col-auto">
+              <Card
+                color="success"
+                inverse
+                style={{
+                  width: "9rem",
+                }}
+              >
+                <CardBody>
+                  <CardTitle tag="h3">
+                    <time>
+                      <em>{day}</em>
+                      <strong>{date}</strong>
+                      <span>{month}</span>
+                    </time>
+                  </CardTitle>
+                </CardBody>
+              </Card>
+            </Col>
+            <Col className="p-2">
               <Input
                 id="exampleText"
                 name="task"

@@ -2,24 +2,44 @@ body {
   margin: 10px;
   min-width: 250px;
 }
+
 .footer {
   text-align: center;
 }
+
 /* Include the padding and border in an element's total width and height */
 * {
   box-sizing: border-box;
+}
+
+time em {
+  padding: 2px 3px;
+}
+
+time strong {
+  position: absolute;
+  font-size: 1.5em;
+  top: 0;
+}
+
+time span {
+  position: absolute;
+  bottom: 0.1em;
+  font-size: 1.1em;
 }
 
 .todolist {
   margin: 20px;
   padding: 20px;
 }
+
 /* Remove margins and padding from the list */
 ul {
   text-align: center;
   margin: 0;
   padding: 10px;
 }
+
 ul li {
   font-size: larger;
   list-style: none;
@@ -69,8 +89,8 @@ input {
 .addBtn:hover {
   background-color: #bbb;
 }
-input[type="checkbox"] {
-}
+
+/* input[type="checkbox"] {} */
 
 /* .App {
   text-align: center;

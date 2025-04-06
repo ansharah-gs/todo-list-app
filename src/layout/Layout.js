@@ -1,7 +1,5 @@
-import { children } from "react";
 import Footer from "../components/Footer";
 import { Link } from "react-router-dom";
-import { Button } from "reactstrap";
 
 import Header from "../components/Header";
 export default function Layout({ children }) {

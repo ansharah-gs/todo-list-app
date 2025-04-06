@@ -69,8 +69,6 @@ const Todoform = ({ onTaskAdded, randomTask }) => {
     setErrors([]); // Clear errors when a random task is added
   };
   const currentDate = useMemo(() => {
-    console.log("🧠 useMemo: Calculating current date");
-
     return {
       day: moment().format("ddd"),
       date: moment().format("DD"),

@@ -25,7 +25,6 @@ time strong {
 time span {
   position: absolute;
   bottom: 0.1em;
-  font-size: 1.1em;
 }
 
 .todolist {
